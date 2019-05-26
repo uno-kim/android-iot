@@ -10,4 +10,6 @@
 
     <!--<color name="colorPrimaryDark">#e8e8e8</color>-->
     <!--&lt;!&ndash;<color name="colorAccent">#8f8f8f</color>&ndash;&gt;-->
+
+    <color name="background">#3300FF</color>
 </resources>

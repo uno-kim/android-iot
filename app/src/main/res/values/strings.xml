@@ -5,8 +5,14 @@
     <string name="button_02">Control 02</string>
     <string name="button_03">Control 03</string>
 
-    <string name="font_h1">Work Sans Light 96</string>
     <string name="font_subtitle1">Work Sans Regular 16</string>
+
+    <string name="font_h1">H1 Headline</string>
+    <string name="font_h2">H2 Headline</string>
+    <string name="font_h3">H3 Headline</string>
+    <string name="font_h4">H4 Headline</string>
+    <string name="font_h5">H5 Headline</string>
+    <string name="font_h6">H6 Headline</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

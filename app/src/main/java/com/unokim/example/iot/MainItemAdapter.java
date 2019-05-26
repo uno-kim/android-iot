@@ -1,6 +1,7 @@
 package com.unokim.example.iot;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,9 +19,11 @@ public class MainItemAdapter extends RecyclerView.Adapter<MainItemAdapter.MainIt
 
     private final List<MainItem> mItems = new ArrayList<>();
     private final LayoutInflater mInflater;
+    private final ClickListener mClickListener;
 
-    public MainItemAdapter(@NonNull Context context) {
+    public MainItemAdapter(@NonNull Context context, @NonNull ClickListener clickListener) {
         mInflater = LayoutInflater.from(context);
+        mClickListener = clickListener;
     }
 
     public void setItems(List<MainItem> items) {
@@ -32,7 +35,7 @@ public class MainItemAdapter extends RecyclerView.Adapter<MainItemAdapter.MainIt
     @Override
     public MainItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = mInflater.inflate(R.layout.device_card_normal, parent, false);
-        return new MainItemViewHolder(v);
+        return new MainItemViewHolder(v, mClickListener);
     }
 
     @Override
@@ -47,8 +50,9 @@ public class MainItemAdapter extends RecyclerView.Adapter<MainItemAdapter.MainIt
     }
 
     static class MainItemViewHolder extends RecyclerView.ViewHolder implements
-            View.OnClickListener {
+            View.OnClickListener, View.OnLongClickListener {
 
+        private ClickListener mClickListener;
         private MainItem mItem;
         private ImageView mIcon;
         private ImageView mPower;
@@ -58,8 +62,9 @@ public class MainItemAdapter extends RecyclerView.Adapter<MainItemAdapter.MainIt
         private Button mControl02;
         private Button mControl03;
 
-        MainItemViewHolder(@NonNull View itemView) {
+        MainItemViewHolder(@NonNull View itemView, @NonNull ClickListener clickListener) {
             super(itemView);
+            mClickListener = clickListener;
 
             mIcon = itemView.findViewById(R.id.icon);
 
@@ -90,7 +95,13 @@ public class MainItemAdapter extends RecyclerView.Adapter<MainItemAdapter.MainIt
 
         @Override
         public void onClick(View v) {
+            mClickListener.onItemClicked(mItem);
+        }
 
+
+        @Override
+        public boolean onLongClick(View v) {
+            return mClickListener.onItemLongClicked(mItem);
         }
     }
 }
