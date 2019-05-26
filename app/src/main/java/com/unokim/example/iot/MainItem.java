@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 
 public class MainItem {
 
+
     private int icon;
 
     private int power;

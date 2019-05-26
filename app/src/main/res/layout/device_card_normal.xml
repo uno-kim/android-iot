@@ -16,6 +16,7 @@
 
         <ImageView
             android:id="@+id/icon"
+            android:tint="@color/blueGray700"
             android:layout_width="16dp"
             android:layout_height="16dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -25,6 +26,7 @@
 
         <ImageView
             android:id="@+id/button_power"
+            android:tint="@color/deepOrange500"
             android:layout_width="16dp"
             android:layout_height="16dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -34,7 +36,7 @@
 
         <TextView
             android:id="@+id/title"
-            style="@style/cardText"
+            style="@style/cardTextTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -44,7 +46,7 @@
 
         <TextView
             android:id="@+id/description"
-            style="@style/cardText"
+            style="@style/cardTextDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"

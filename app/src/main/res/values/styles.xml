@@ -1,66 +1,42 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.MaterialComponents.Light">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">#FFFFFF</item>
-        <item name="colorPrimaryDark">#d2dbe0</item>
-        <item name="colorPrimaryVariant">#4A6572</item>
-        <item name="colorOnPrimary">#770077</item>
 
 
-
-        <item name="colorSecondary">#F9AA33</item>
-
-
-
-        <item name="colorSurface">#FFFFFF</item>
-        <item name="colorOnSurface">#999999</item>
-
-        <item name="android:colorBackground">@color/background</item>
+        <item name="colorSecondary">@android:color/holo_green_light</item>
+        <item name="colorOnSurface">@color/white</item>
         <item name="colorOnBackground">#334422</item>
+        <!--<item name="android:statusBarColor">#d2dbe0</item>-->
 
-        <item name="android:statusBarColor">#00ff00</item>
-        <item name="android:navigationBarColor">#33aa01</item>
-        <!--<item name="colorSecondaryVariant">@color/colorSecondaryVariant</item>-->
-        <!--<item name="colorOnSecondary">@color/colorOnSecondary</item>-->
-        <!--<item name="colorOnBackground">#edf0f2</item>-->
-        <!--<item name="colorBackgroundFloating">#ff00ff</item>-->
-        <!--<item name="colorOnBackground">#ff00ff</item>-->
-        <!--<item name="scrimBackground">#ff00ff</item>-->
-        <!--<item name="controlBackground">#ff00ff</item>-->
-        <!--<item name="android:background">#edf0f2</item>-->
-
-        <!--<item name="colorOnSurface">#ff00ff</item>-->
-        <!--<item name="colorOnSurfaceDisabled">#ff00ff</item>-->
-        <!--<item name="colorOnSurfaceEmphasisHighType">#ff00ff</item>-->
-        <!--<item name="colorOnSurfaceEmphasisMedium">#ff00ff</item>-->
-
-        <!--<item name="colorOnBackground">#edf0f2</item>-->
-        <!--<item name="colorOnBackground">#FFF333</item>-->
-        <!--<item name="colorError">#F44336</item>-->
-        <!--<item name="colorOnError">#FFFFFF</item>-->
-        <!--<item name="colorSurface">#edf0f2</item>-->
-        <!--<item name="colorOnSurface">#edf0f2</item>-->
-        <!--<item name="android:colorBackground">#edf0f2</item>-->
-        <!--<item name="materialButtonStyle">@style/Widget.MaterialComponents.Button</item>-->
-
-
-        <!--<item name="colorAccent">@color/colorAccent</item>-->
-
-        <item name="textAppearanceBody1">@style/Headline1</item>
 
     </style>
 
-    <style name="cardText" parent="@style/TextAppearance.MaterialComponents.Body1">
+    <style name="AppTheme.Reply" parent="AppTheme">
+        <item name="colorPrimary">@color/blueGray700</item>
+        <item name="colorPrimaryDark">@color/blueGray100</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <item name="android:colorBackground">@color/blueGray50</item>
+        <item name="colorSurface">@color/white</item>
+
+        <item name="android:navigationBarColor">@color/blueGray700</item>
+    </style>
+
+
+    <style name="cardTextTitle" parent="@style/Subtitle2">
         <item name="android:textSize">8sp</item>
-        <item name="android:fontVariationSettings">@string/font_subtitle1</item>
-
-
+    </style>
+    <style name="cardTextDescription" parent="@style/Body2">
+        <item name="android:textSize">8sp</item>
     </style>
 
-    <style name="cardButton" parent="@style/Widget.MaterialComponents.Button">
-        <item name="backgroundTint">#F9AA33</item>
+    <style name="cardButton" parent="@style/Button">
+        <item name="elevation">0dp</item>
+        <item name="backgroundTint">@color/gray400</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:letterSpacing">0</item>
         <item name="android:textSize">7sp</item>
         <item name="android:minWidth">20dp</item>
         <item name="android:minHeight">16dp</item>
@@ -68,66 +44,64 @@
     </style>
 
     <style name="Headline1" parent="TextAppearance.MaterialComponents.Headline1">
-        <item name="android:typeface">normal</item>
-        <item name="android:fontStyle">italic</item>
-        <item name="android:fontWeight">900</item>
-        <item name="fontFamily">@font/worksans_medium</item>
+        <item name="fontFamily">@font/worksans_light</item>
         <item name="android:textSize">96sp</item>
     </style>
-
-    <style name="H2" parent="TextAppearance.MaterialComponents.Headline2">
-        <item name="android:fontFamily">@font/font_family</item>
-        <item name="fontFamily">sans-serif-condensed-medium</item>
-        <item name="android:fontWeight">600</item>
+    <style name="Headline2" parent="TextAppearance.MaterialComponents.Headline2">
+        <item name="fontFamily">@font/worksans_semibold</item>
         <item name="android:textSize">60sp</item>
     </style>
-
-    <style name="H3" parent="TextAppearance.MaterialComponents.Headline3">
-        <item name="android:fontFamily">@font/font_family</item>
-        <item name="fontFamily">sans-serif-medium</item>
+    <style name="Headline3" parent="TextAppearance.MaterialComponents.Headline3">
+        <item name="fontFamily">@font/worksans_regular</item>
         <item name="android:textSize">48sp</item>
     </style>
-
-    <style name="H4" parent="TextAppearance.MaterialComponents.Headline4">
-        <item name="android:fontFamily">@font/worksans_regular</item>
+    <style name="Headline4" parent="TextAppearance.MaterialComponents.Headline4">
+        <item name="fontFamily">@font/worksans_semibold</item>
         <item name="android:textSize">34sp</item>
     </style>
 
-    <style name="H5" parent="TextAppearance.MaterialComponents.Headline5">
-        <item name="android:fontFamily">@font/worksans_bold</item>
+    <style name="Headline5" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="fontFamily">@font/worksans_bold</item>
         <item name="android:textSize">24sp</item>
     </style>
 
-    <style name="H6" parent="TextAppearance.MaterialComponents.Headline6">
-        <item name="android:fontFamily">@font/worksans_medium</item>
+    <style name="Headline6" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="fontFamily">@font/worksans_medium</item>
         <item name="android:textSize">20sp</item>
     </style>
 
-    <style name="Subtitle1" parent="@style/TextAppearance.MaterialComponents.Body1">
+    <style name="Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="fontFamily">@font/worksans_regular</item>
         <item name="android:textSize">16sp</item>
     </style>
 
-    <style name="Subtitle2" parent="@style/TextAppearance.MaterialComponents.Body1">
+    <style name="Subtitle2" parent="TextAppearance.MaterialComponents.Subtitle2">
+        <item name="fontFamily">@font/worksans_medium</item>
         <item name="android:textSize">14sp</item>
     </style>
 
-    <style name="Body1" parent="@style/TextAppearance.MaterialComponents.Body1">
+    <style name="Body1" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="fontFamily">@font/worksans_regular</item>
         <item name="android:textSize">18sp</item>
     </style>
 
-    <style name="Body2" parent="@style/TextAppearance.MaterialComponents.Body1">
+    <style name="Body2" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="fontFamily">@font/worksans_regular</item>
         <item name="android:textSize">14sp</item>
     </style>
 
-    <style name="Button" parent="@style/TextAppearance.MaterialComponents.Body1">
+    <style name="Button" parent="TextAppearance.MaterialComponents.Button">
+        <item name="fontFamily">@font/worksans_medium</item>
         <item name="android:textSize">14sp</item>
     </style>
 
-    <style name="Caption" parent="@style/TextAppearance.MaterialComponents.Body1">
+    <style name="Caption" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="fontFamily">@font/worksans_regular</item>
         <item name="android:textSize">12sp</item>
     </style>
 
-    <style name="Overline" parent="@style/TextAppearance.MaterialComponents.Body1">
+    <style name="Overline" parent="TextAppearance.MaterialComponents.Overline">
+        <item name="fontFamily">@font/worksans_semibold</item>
         <item name="android:textSize">12sp</item>
     </style>
 </resources>

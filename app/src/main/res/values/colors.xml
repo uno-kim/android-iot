@@ -11,5 +11,33 @@
     <!--<color name="colorPrimaryDark">#e8e8e8</color>-->
     <!--&lt;!&ndash;<color name="colorAccent">#8f8f8f</color>&ndash;&gt;-->
 
-    <color name="background">#3300FF</color>
+    <color name="background">#EDF0F2</color>
+
+    <color name="red50">#FFEBEE</color>
+
+    <color name="orange100">#FFE0B2</color>
+    <color name="orange400">#FFA726</color>
+    <color name="orange500">#FF9800</color>
+
+    <color name="deepOrange500">#FF5722</color>
+    <color name="deepOrangeA700">#DD2C00</color>
+
+    <color name="gray50">#FAFAFA</color>
+    <color name="gray100">#F5F5F5</color>
+    <color name="gray200">#EEEEEE</color>
+    <color name="gray300">#E0E0E0</color>
+    <color name="gray400">#BDBDBD</color>
+    <color name="gray500">#9E9E9E</color>
+    <color name="gray600">#757575</color>
+    <color name="gray700">#616161</color>
+    <color name="gray800">#424242</color>
+    <color name="gray900">#212121</color>
+
+    <color name="blueGray50">#ECEFF1</color>
+    <color name="blueGray100">#CFD8DC</color>
+    <color name="blueGray700">#455A64</color>
+    <color name="blueGray800">#37474F</color>
+
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
 </resources>

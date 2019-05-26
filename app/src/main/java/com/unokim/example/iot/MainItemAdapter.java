@@ -1,7 +1,6 @@
 package com.unokim.example.iot;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -87,7 +86,6 @@ public class MainItemAdapter extends RecyclerView.Adapter<MainItemAdapter.MainIt
 
         void bindItem(MainItem item) {
             mItem = item;
-
             mTitle.setText(item.getTitle());
             mDescription.setText(item.getDescription());
 
