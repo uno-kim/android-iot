@@ -9,6 +9,9 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 
 /**
@@ -16,6 +19,9 @@ import androidx.fragment.app.Fragment;
  */
 public class MainFragment extends Fragment {
 
+
+    private RecyclerView mMainRecyclerView;
+    private MainItemAdapter mMainItemAdapter;
 
     public MainFragment() {
         // Required empty public constructor
@@ -26,7 +32,16 @@ public class MainFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
             @Nullable Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main, container, false);
+        View v = inflater.inflate(R.layout.fragment_main, container, false);
+
+        mMainRecyclerView = v.findViewById(R.id.main_recycler_view);
+        mMainItemAdapter = new MainItemAdapter(getContext());
+        mMainItemAdapter.setItems(DefaultMainItem.getInstance().getItems());
+        mMainRecyclerView.setAdapter(mMainItemAdapter);
+        mMainRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
+        mMainRecyclerView.setItemAnimator(new DefaultItemAnimator());
+
+        return v;
     }
 
 }

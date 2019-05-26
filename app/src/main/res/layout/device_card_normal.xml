@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Widget.MaterialComponents.CardView"
+    android:layout_margin="4dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="80dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="4dp">
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_cloud_circle_black_24dp"
+            tools:srcCompat="@drawable/ic_cloud_circle_black_24dp"/>
+
+        <ImageView
+            android:id="@+id/button_power"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_power_settings_new_black_24dp"
+            tools:src="@drawable/ic_power_settings_new_black_24dp"/>
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/cardText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/icon"
+            tools:text="Air Purifier"/>
+
+        <TextView
+            android:id="@+id/description"
+            style="@style/cardText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            tools:text="Current status is good!"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/control_01"
+            style="@style/cardButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="4dp"
+            android:text="@string/button_01"
+            app:layout_constraintEnd_toStartOf="@+id/control_02"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/description"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/control_02"
+            style="@style/cardButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:text="@string/button_02"
+            app:layout_constraintBottom_toBottomOf="@+id/control_01"
+            app:layout_constraintEnd_toStartOf="@+id/control_03"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/control_01"
+            app:layout_constraintTop_toTopOf="@+id/control_01"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/control_03"
+            style="@style/cardButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_03"
+            app:layout_constraintBottom_toBottomOf="@+id/control_02"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/control_02"
+            app:layout_constraintTop_toTopOf="@+id/control_02"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

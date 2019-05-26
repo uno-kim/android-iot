@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">IoT</string>
 
+    <string name="button_01">Control 01</string>
+    <string name="button_02">Control 02</string>
+    <string name="button_03">Control 03</string>
+
+    <string name="font_h1">Work Sans Light 96</string>
+    <string name="font_subtitle1">Work Sans Regular 16</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -3,18 +3,57 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.MaterialComponents.DayNight">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryVariant">@color/colorPrimaryVariant</item>
-        <item name="colorOnPrimary">@color/colorOnPrimary</item>
-        <item name="colorSecondary">@color/colorSecondary</item>
-        <item name="colorSecondaryVariant">@color/colorSecondaryVariant</item>
-        <item name="colorOnSecondary">@color/colorOnSecondary</item>
+        <item name="colorPrimary">#FFFFFF</item>
+        <item name="colorPrimaryDark">#d2dbe0</item>
+        <item name="colorPrimaryVariant">#4A6572</item>
+        <item name="colorSurface">#FFFFFF</item>
+
+        <item name="colorSecondary">#F9AA33</item>
 
 
+        <item name="colorOnPrimary">#FFFFFF</item>
 
 
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <!--<item name="colorSecondaryVariant">@color/colorSecondaryVariant</item>-->
+        <!--<item name="colorOnSecondary">@color/colorOnSecondary</item>-->
+        <!--<item name="colorOnBackground">#edf0f2</item>-->
+        <!--<item name="colorBackgroundFloating">#ff00ff</item>-->
+        <!--<item name="colorOnBackground">#ff00ff</item>-->
+        <!--<item name="scrimBackground">#ff00ff</item>-->
+        <!--<item name="controlBackground">#ff00ff</item>-->
+        <!--<item name="android:background">#edf0f2</item>-->
+
+        <!--<item name="colorOnSurface">#ff00ff</item>-->
+        <!--<item name="colorOnSurfaceDisabled">#ff00ff</item>-->
+        <!--<item name="colorOnSurfaceEmphasisHighType">#ff00ff</item>-->
+        <!--<item name="colorOnSurfaceEmphasisMedium">#ff00ff</item>-->
+
+        <!--<item name="colorOnBackground">#edf0f2</item>-->
+        <!--<item name="colorOnBackground">#FFF333</item>-->
+        <!--<item name="colorError">#F44336</item>-->
+        <!--<item name="colorOnError">#FFFFFF</item>-->
+        <!--<item name="colorSurface">#edf0f2</item>-->
+        <!--<item name="colorOnSurface">#edf0f2</item>-->
+        <!--<item name="android:colorBackground">#edf0f2</item>-->
+        <!--<item name="materialButtonStyle">@style/Widget.MaterialComponents.Button</item>-->
+
+
+        <!--<item name="colorAccent">@color/colorAccent</item>-->
+    </style>
+
+    <style name="cardText" parent="@style/TextAppearance.MaterialComponents.Body1">
+        <item name="android:textSize">8sp</item>
+        <item name="android:fontVariationSettings">@string/font_subtitle1</item>
+
+
+    </style>
+
+    <style name="cardButton" parent="@style/Widget.MaterialComponents.Button">
+        <item name="backgroundTint">#F9AA33</item>
+        <item name="android:textSize">7sp</item>
+        <item name="android:minWidth">20dp</item>
+        <item name="android:minHeight">16dp</item>
+        <item name="android:padding">2dp</item>
     </style>
 
 </resources>
