@@ -3,11 +3,12 @@ package com.unokim.example.iot.data.source.local;
 import android.content.Context;
 import android.os.AsyncTask;
 
-import com.unokim.example.iot.R;
 import com.unokim.example.iot.data.source.entity.DeviceItem;
 import com.unokim.example.iot.data.source.entity.GroupItem;
 import com.unokim.example.iot.data.source.entity.Location;
 import com.unokim.example.iot.data.source.entity.SceneItem;
+
+import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.room.Database;
@@ -75,9 +76,14 @@ public abstract class LocalDatabase extends RoomDatabase {
             mLocationDao.deleteAll();
             mSceneItemDao.deleteAll();
 
-            mDeviceItemDao.insert(
-                    new DeviceItem("001", "device001", R.drawable.ic_cloud_circle_black_24dp,
-                            "home", "room01", 0, true, 1));
+            List<DeviceItem> deviceItems = PopulateDbHelper.getInstance().makeDeviceItems();
+            mDeviceItemDao.insert(deviceItems);
+            List<GroupItem> groupItems = PopulateDbHelper.getInstance().makeGroupItems();
+            mGroupItemDao.insert(groupItems);
+            List<Location> locations = PopulateDbHelper.getInstance().makeLocations();
+            mLocationDao.insert(locations);
+            List<SceneItem> sceneItems = PopulateDbHelper.getInstance().makeSceneItems();
+            mSceneItemDao.insert(sceneItems);
             return null;
         }
     }

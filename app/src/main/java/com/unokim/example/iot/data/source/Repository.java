@@ -2,6 +2,7 @@ package com.unokim.example.iot.data.source;
 
 import com.unokim.example.iot.data.source.entity.DeviceItem;
 import com.unokim.example.iot.data.source.local.LocalDataSource;
+import com.unokim.example.iot.logger.Logger;
 
 import java.util.List;
 
@@ -43,5 +44,10 @@ public class Repository {
 
     public Flowable<List<DeviceItem>> getAllFavoriteDevices() {
         return mLocalDataSource.getAllFavoriteDevices();
+    }
+
+    public void clearAllDisposables() {
+        Logger.d(TAG, "clearAllDisposables()");
+        mLocalDataSource.clearAllDisposables();
     }
 }

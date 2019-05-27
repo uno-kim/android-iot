@@ -1,17 +1,21 @@
 package com.unokim.example.iot.data.source.local;
 
 import com.unokim.example.iot.data.source.entity.DeviceItem;
+import com.unokim.example.iot.logger.Logger;
 
 import java.util.List;
 
 import androidx.annotation.NonNull;
 import io.reactivex.Flowable;
+import io.reactivex.disposables.CompositeDisposable;
 
 public class LocalDataSource {
 
     private static final String TAG = "LocalDataSource";
 
     private static volatile LocalDataSource INSTANCE;
+
+    private final CompositeDisposable mCompositeDisposable = new CompositeDisposable();
 
     @NonNull
     private final DeviceItemDao mDeviceItemDao;
@@ -57,6 +61,11 @@ public class LocalDataSource {
 
     public Flowable<List<DeviceItem>> getAllFavoriteDevices() {
         return mDeviceItemDao.getAllFavoriteDevices();
+    }
+
+    public void clearAllDisposables() {
+        Logger.d(TAG, "clearAllDisposables()");
+        mCompositeDisposable.clear();
     }
 
 }

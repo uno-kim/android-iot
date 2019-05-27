@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -23,6 +24,7 @@ public class MainFragment extends Fragment implements ClickListener {
 
     private RecyclerView mMainRecyclerView;
     private MainItemAdapter mMainItemAdapter;
+    private MainViewModel mMainViewModel;
 
     public MainFragment() {
         // Required empty public constructor
@@ -43,6 +45,16 @@ public class MainFragment extends Fragment implements ClickListener {
         mMainRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
         return v;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        mMainViewModel = ViewModelProviders.of(getActivity()).get(MainViewModel.class);
+        mMainViewModel.getITems().observe(this, items -> {
+//            mMainItemAdapter.updateList(items);
+        });
     }
 
     @Override
