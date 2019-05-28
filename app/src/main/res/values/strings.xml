@@ -18,7 +18,8 @@
     <string name="font_button">Button</string>
     <string name="font_caption">Caption</string>
     <string name="font_overline">Overline</string>
-
+    <string name="scenes_title">Scenes ></string>
+    <string name="no_devices">No devices</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

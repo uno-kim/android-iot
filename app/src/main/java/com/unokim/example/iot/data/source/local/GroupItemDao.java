@@ -41,5 +41,8 @@ public interface GroupItemDao {
     void deleteAll();
 
     @Query("SELECT * FROM GroupItem WHERE locationId = :locationId ORDER BY `order` ASC")
-    Flowable<List<GroupItem>> getDevices(@NonNull String locationId);
+    Flowable<List<GroupItem>> getGroupsFlowable(@NonNull String locationId);
+
+    @Query("SELECT * FROM GroupItem WHERE locationId = :locationId ORDER BY `order` ASC")
+    List<GroupItem> getGroups(@NonNull String locationId);
 }

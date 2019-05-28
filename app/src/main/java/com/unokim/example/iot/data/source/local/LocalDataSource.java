@@ -1,6 +1,9 @@
 package com.unokim.example.iot.data.source.local;
 
 import com.unokim.example.iot.data.source.entity.DeviceItem;
+import com.unokim.example.iot.data.source.entity.GroupItem;
+import com.unokim.example.iot.data.source.entity.Location;
+import com.unokim.example.iot.data.source.entity.SceneItem;
 import com.unokim.example.iot.logger.Logger;
 
 import java.util.List;
@@ -51,16 +54,45 @@ public class LocalDataSource {
         return INSTANCE;
     }
 
-    public Flowable<List<DeviceItem>> getDevices(@NonNull String groupId) {
-        return mDeviceItemDao.getDevices(groupId);
+    public Flowable<List<DeviceItem>> getDevicesFlowable(@NonNull String groupId) {
+        return mDeviceItemDao.getDevicesFlowable(groupId);
     }
 
-    public Flowable<List<DeviceItem>> getFavoriteDevices(@NonNull String groupId) {
-        return mDeviceItemDao.getDevices(groupId);
+    public Flowable<List<DeviceItem>> getFavoriteDevicesFlowable(@NonNull String groupId) {
+        return mDeviceItemDao.getDevicesFlowable(groupId);
     }
 
-    public Flowable<List<DeviceItem>> getAllFavoriteDevices() {
-        return mDeviceItemDao.getAllFavoriteDevices();
+    public Flowable<List<DeviceItem>> getFavoriteDevicesFlowableByLocation(
+            @NonNull String locationId) {
+        return mDeviceItemDao.getFavoriteDevicesFlowableByLocation(locationId);
+    }
+
+    public List<DeviceItem> getFavoriteDevices(@NonNull String groupId) {
+        return mDeviceItemDao.getFavoriteDevices(groupId);
+    }
+
+    public Flowable<List<DeviceItem>> getAllFavoriteDevicesFlowable() {
+        return mDeviceItemDao.getAllFavoriteDevicesFlowable();
+    }
+
+    public Flowable<List<SceneItem>> getScenes(@NonNull String locationId) {
+        return mSceneItemDao.getScenes(locationId);
+    }
+
+    public Flowable<List<GroupItem>> getGroupsFlowable(@NonNull String locationId) {
+        return mGroupItemDao.getGroupsFlowable(locationId);
+    }
+
+    public List<GroupItem> getGroups(@NonNull String locationId) {
+        return mGroupItemDao.getGroups(locationId);
+    }
+
+    public Flowable<List<Location>> getAllLocationsFlowable() {
+        return mLocationDao.getAllLocationsFlowable();
+    }
+
+    public List<Location> getAllLocations() {
+        return mLocationDao.getAllLocations();
     }
 
     public void clearAllDisposables() {

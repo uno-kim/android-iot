@@ -8,6 +8,7 @@ import com.unokim.example.iot.data.source.entity.SceneItem;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Random;
 
 class PopulateDbHelper {
@@ -29,22 +30,24 @@ class PopulateDbHelper {
             R.drawable.ic_speaker_group_black_24dp
     };
 
-    private static final String[] mLocations = {
-            "location01", "location02", "location03", "location04", "location05"
+    private static final int[] mSceneIcons = {
+            R.drawable.ic_cloud_circle_black_24dp,
+            R.drawable.ic_power_settings_new_black_24dp,
+            R.drawable.ic_remove_red_eye_black_24dp,
+            R.drawable.ic_router_black_24dp,
+            R.drawable.ic_wb_incandescent_black_24dp,
+            R.drawable.ic_storage_black_24dp,
+            R.drawable.ic_speaker_group_black_24dp
     };
 
+    private static final String[] mLocationNames = {
+            "Home", "Office", "USA", "Uncle Joe", "Studio"
+    };
+
+    private static int[] mGroupCount = {20, 11, 13, 9, 17};
+
     private int getGroupId(int locationId) {
-        if (locationId == 0) {
-            return mRandom.nextInt(20);
-        } else if (locationId == 1) {
-            return mRandom.nextInt(11);
-        } else if (locationId == 2) {
-            return mRandom.nextInt(13);
-        } else if (locationId == 3) {
-            return mRandom.nextInt(9);
-        } else {
-            return mRandom.nextInt(17);
-        }
+        return mRandom.nextInt(mGroupCount[locationId]);
     }
 
     static PopulateDbHelper getInstance() {
@@ -60,22 +63,23 @@ class PopulateDbHelper {
 
     List<DeviceItem> makeDeviceItems() {
         List<DeviceItem> deviceItems = new ArrayList<>();
-        for (int i = 0; i < 100; ++i) {
+        for (int i = 0; i < 500; ++i) {
 
-            int deviceId = mRandom.nextInt(10000);
+            int deviceId = mRandom.nextInt(50000);
             int name = mRandom.nextInt(mDevices.length);
             int icon = mRandom.nextInt(mDeviceIcons.length);
-            int locationId = mRandom.nextInt(mLocations.length);
+            int locationId = mRandom.nextInt(5);
+            boolean favorite = mRandom.nextBoolean();
             int groupId = getGroupId(locationId);
 
             DeviceItem deviceItem = new DeviceItem(
-                    "device" + deviceId,
+                    String.format(Locale.getDefault(), "device%05d", deviceId),
                     mDevices[name],
                     mDeviceIcons[icon],
-                    mLocations[locationId],
-                    Integer.toString(groupId),
-                    mRandom.nextInt(10000),
-                    mRandom.nextBoolean(),
+                    String.format(Locale.getDefault(), "location%02d", locationId),
+                    String.format(Locale.getDefault(), "group%d%02d", locationId, groupId),
+                    mRandom.nextInt(50000),
+                    favorite,
                     mRandom.nextInt(3));
             deviceItems.add(deviceItem);
         }
@@ -84,8 +88,18 @@ class PopulateDbHelper {
 
     List<GroupItem> makeGroupItems() {
         List<GroupItem> groupItems = new ArrayList<>();
-        for (int i = 0; i < 10; ++i) {
-
+        for (int locationId = 0; locationId < 5; ++locationId) {
+            int groupCount = mGroupCount[locationId];
+            for (int i = 0; i < groupCount; ++i) {
+                GroupItem groupItem = new GroupItem(
+                        String.format(Locale.getDefault(), "group%d%02d", locationId, i),
+                        String.format(Locale.getDefault(), "group%02d", i),
+                        0,
+                        String.format(Locale.getDefault(), "location%02d", locationId),
+                        0
+                );
+                groupItems.add(groupItem);
+            }
         }
         return groupItems;
     }
@@ -93,15 +107,34 @@ class PopulateDbHelper {
     List<Location> makeLocations() {
         List<Location> locations = new ArrayList<>();
         for (int i = 0; i < 5; ++i) {
-
+            Location location = new Location(
+                    String.format(Locale.getDefault(), "location%02d", i),
+                    mLocationNames[i],
+                    0,
+                    0,
+                    "owner");
+            locations.add(location);
         }
         return locations;
     }
 
     List<SceneItem> makeSceneItems() {
         List<SceneItem> sceneItems = new ArrayList<>();
-        for (int i = 0; i < 15; ++i) {
+        for (int i = 0; i < 100; ++i) {
+            int sceneId = mRandom.nextInt(900);
+            int icon = mRandom.nextInt(mSceneIcons.length);
+            int locationId = mRandom.nextInt(5);
+            boolean favorite = mRandom.nextBoolean();
 
+            SceneItem sceneItem = new SceneItem(
+                    String.format(Locale.getDefault(), "scene%03d", sceneId),
+                    String.format(Locale.getDefault(), "scene%03d", sceneId),
+                    icon,
+                    String.format(Locale.getDefault(), "location%02d", locationId),
+                    mRandom.nextInt(900),
+                    favorite,
+                    mRandom.nextInt(3));
+            sceneItems.add(sceneItem);
         }
         return sceneItems;
     }

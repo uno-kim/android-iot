@@ -41,12 +41,18 @@ public interface DeviceItemDao {
     void deleteAll();
 
     @Query("SELECT * FROM DeviceItem WHERE groupId = :groupId ORDER BY `order` ASC, favorite ASC")
-    Flowable<List<DeviceItem>> getDevices(@NonNull String groupId);
+    Flowable<List<DeviceItem>> getDevicesFlowable(@NonNull String groupId);
+
+    @Query("SELECT * FROM DeviceItem WHERE locationId = :locationId ORDER BY `order` ASC, "
+            + "favorite ASC")
+    Flowable<List<DeviceItem>> getFavoriteDevicesFlowableByLocation(@NonNull String locationId);
+
+    @Query("SELECT * FROM DeviceItem WHERE favorite = 1 ORDER BY `order` ASC")
+    Flowable<List<DeviceItem>> getAllFavoriteDevicesFlowable();
+
 
     @Query("SELECT * FROM DeviceItem WHERE groupId = :groupId AND favorite = 1 ORDER BY `order` "
             + "ASC")
-    Flowable<List<DeviceItem>> getFavoriteDevices(@NonNull String groupId);
+    List<DeviceItem> getFavoriteDevices(@NonNull String groupId);
 
-    @Query("SELECT * FROM DeviceItem WHERE favorite = 1 ORDER BY `order` ASC")
-    Flowable<List<DeviceItem>> getAllFavoriteDevices();
 }

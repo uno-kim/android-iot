@@ -24,6 +24,9 @@
         <item name="android:navigationBarColor">@color/blueGray700</item>
     </style>
 
+    <style name="containerTitle" parent="@style/Headline6">
+        <item name="android:textSize">12sp</item>
+    </style>
 
     <style name="cardTextTitle" parent="@style/Subtitle2">
         <item name="android:textSize">8sp</item>

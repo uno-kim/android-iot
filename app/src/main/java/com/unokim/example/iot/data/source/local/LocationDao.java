@@ -40,5 +40,8 @@ public interface LocationDao {
     void deleteAll();
 
     @Query("SELECT * FROM Location")
-    Flowable<List<Location>> getAllLocations();
+    Flowable<List<Location>> getAllLocationsFlowable();
+
+    @Query("SELECT * FROM Location")
+    List<Location> getAllLocations();
 }

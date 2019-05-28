@@ -1,5 +1,7 @@
 package com.unokim.example.iot.data.source.entity;
 
+import android.text.TextUtils;
+
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -100,5 +102,21 @@ public class DeviceItem {
 
     public void setDeviceStatus(int deviceStatus) {
         this.deviceStatus = deviceStatus;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof DeviceItem) {
+            DeviceItem item = (DeviceItem) obj;
+            return TextUtils.equals(item.getId(), this.getId())
+                    && TextUtils.equals(item.getName(), this.getName())
+                    && item.getIconId() == this.getIconId()
+                    && TextUtils.equals(item.getLocationId(), this.getLocationId())
+                    && TextUtils.equals(item.getGroupId(), this.getGroupId())
+                    && item.getOrder() == this.getOrder()
+                    && item.isFavorite() == this.isFavorite()
+                    && item.getDeviceStatus() == this.getDeviceStatus();
+        }
+        return false;
     }
 }

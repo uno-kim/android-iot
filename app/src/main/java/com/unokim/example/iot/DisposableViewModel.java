@@ -15,7 +15,7 @@ public class DisposableViewModel extends AndroidViewModel {
         super(application);
     }
 
-    void addDisposable(Disposable disposable) {
+    protected void addDisposable(Disposable disposable) {
         mCompositeDisposable.add(disposable);
     }
 
