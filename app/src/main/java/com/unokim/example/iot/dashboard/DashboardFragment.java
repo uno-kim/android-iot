@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.unokim.example.iot.ClickListener;
 import com.unokim.example.iot.FontActivity;
@@ -44,6 +45,15 @@ public class DashboardFragment extends Fragment implements ClickListener {
 
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_dashboard, container, false);
+
+        Button button01 = v.findViewById(R.id.navButton01);
+        button01.setOnClickListener(v1 -> {
+            mDashboardViewModel.update01();
+        });
+        Button button02 = v.findViewById(R.id.navButton02);
+        button02.setOnClickListener(v12 -> {
+            mDashboardViewModel.update02();
+        });
 
         mMainRecyclerView = v.findViewById(R.id.main_recycler_view);
         mDashboardItemAdapter = new DashboardItemAdapter(getContext(), this);

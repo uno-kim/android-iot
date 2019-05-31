@@ -36,6 +36,13 @@ public class Repository {
         return INSTANCE;
     }
 
+    public void update01() {
+        mLocalDataSource.update01();
+    }
+
+    public void update02() {
+        mLocalDataSource.update02();
+    }
 
     public Flowable<List<DeviceItem>> getDevicesFlowable(@NonNull String groupId) {
         return mLocalDataSource.getDevicesFlowable(groupId);

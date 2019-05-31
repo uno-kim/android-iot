@@ -36,6 +36,14 @@ public class DashboardViewModel extends DisposableViewModel {
         mRepository = Injection.provideRepository(application.getApplicationContext());
     }
 
+    void update01() {
+        mRepository.update01();
+    }
+
+    void update02() {
+        mRepository.update02();
+    }
+
     LiveData<List<DashboardItem>> getDashboardItems() {
         Logger.d(TAG, "getDashboardItems()");
         if (mDashboardItems == null) {
@@ -63,12 +71,12 @@ public class DashboardViewModel extends DisposableViewModel {
     @WorkerThread
     private void updateDashboardItems() {
         Logger.d(TAG, "makeDashboardItems()");
-        List<DashboardItem> dashboardItems = new ArrayList<>();
-        List<Location> locations = mRepository.getAllLocations();
+        final List<DashboardItem> dashboardItems = new ArrayList<>();
+        final List<Location> locations = mRepository.getAllLocations();
         if (locations.size() == 0) return;
 
         // group list
-        List<GroupItem> groupItems = mRepository.getGroups(locations.get(0).getId());
+        final List<GroupItem> groupItems = mRepository.getGroups(locations.get(0).getId());
         groupItems.forEach(groupItem -> {
             DashboardItem item = new DashboardItem(
                     groupItem.getId(),
@@ -82,7 +90,7 @@ public class DashboardViewModel extends DisposableViewModel {
             );
             dashboardItems.add(item);
 
-            List<DeviceItem> deviceItems = mRepository.getFavoriteDevices(groupItem.getId());
+            final List<DeviceItem> deviceItems = mRepository.getFavoriteDevices(groupItem.getId());
 
             if (deviceItems.size() == 0) {
                 DashboardItem item1 = new DashboardItem(

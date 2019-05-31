@@ -35,9 +35,20 @@
         <item name="android:textSize">8sp</item>
     </style>
 
+    <style name="navigationButton" parent="@style/Button">
+        <item name="elevation">0dp</item>
+        <item name="backgroundTint">@color/gray500</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:minWidth">20dp</item>
+        <item name="android:minHeight">20dp</item>
+        <item name="android:padding">4dp</item>
+    </style>
+
     <style name="cardButton" parent="@style/Button">
         <item name="elevation">0dp</item>
-        <item name="backgroundTint">@color/gray400</item>
+        <item name="backgroundTint">@color/gray500</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:letterSpacing">0</item>
         <item name="android:textSize">7sp</item>

@@ -10,7 +10,9 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 import io.reactivex.Flowable;
+import io.reactivex.Single;
 import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
 
 public class LocalDataSource {
 
@@ -52,6 +54,31 @@ public class LocalDataSource {
             }
         }
         return INSTANCE;
+    }
+
+    public void update01() {
+        mCompositeDisposable.add(Single.just(0).subscribeOn(Schedulers.io()).subscribe(
+                integer -> populateDb()));
+
+    }
+
+    public void update02() {
+
+    }
+
+    private void populateDb() {
+        mDeviceItemDao.deleteAll();
+        mGroupItemDao.deleteAll();
+        mLocationDao.deleteAll();
+        mSceneItemDao.deleteAll();
+        List<DeviceItem> deviceItems = PopulateDbHelper.getInstance().makeDeviceItems();
+        mDeviceItemDao.insert(deviceItems);
+        List<GroupItem> groupItems = PopulateDbHelper.getInstance().makeGroupItems();
+        mGroupItemDao.insert(groupItems);
+        List<Location> locations = PopulateDbHelper.getInstance().makeLocations();
+        mLocationDao.insert(locations);
+        List<SceneItem> sceneItems = PopulateDbHelper.getInstance().makeSceneItems();
+        mSceneItemDao.insert(sceneItems);
     }
 
     public Flowable<List<DeviceItem>> getDevicesFlowable(@NonNull String groupId) {

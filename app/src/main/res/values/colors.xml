@@ -22,6 +22,11 @@
     <color name="deepOrange500">#FF5722</color>
     <color name="deepOrangeA700">#DD2C00</color>
 
+    <color name="teal300">#4DB6AC</color>
+    <color name="teal400">#26A69A</color>
+    <color name="teal600">#00897B</color>
+    <color name="teal800">#00695C</color>
+
     <color name="gray50">#FAFAFA</color>
     <color name="gray100">#F5F5F5</color>
     <color name="gray200">#EEEEEE</color>
